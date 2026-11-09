@@ -58,7 +58,17 @@ def show_expenses():
         return
     for number, e in enumerate(expenses, start=1):
         print(f"{number}. {e['категория']} — {e['сумма']:.2f} руб.")
+
+# ===== US-4. Общая сумма расходов =====
+def total_expenses():
+    total = 0
+    for e in expenses:
+        total = total + e["сумма"]
+    print(f"Всего потрачено: {total:.2f} руб.")
  
+ 
+MENU.append(("Общая сумма расходов", total_expenses))
+
  
 MENU.append(("Список расходов", show_expenses))
 
