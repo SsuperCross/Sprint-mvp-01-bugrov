@@ -37,7 +37,20 @@ def start():
             MENU[int(choice) - 1][1]()
         else:
             print("Нет такого пункта меню")
+
+# ===== US-2. Добавить расход =====
+expenses = []  # список расходов
  
+ 
+def add_expense():
+    amount = ask_float("Сумма расхода, руб.: ")
+    if amount <= 0:
+        print("Ошибка: сумма должна быть больше 0")
+        return
+    category = input("Категория (еда, транспорт, развлечения): ").strip()
+    expenses.append({"сумма": amount, "категория": category})
+    print("Расход добавлен")
+
  
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
