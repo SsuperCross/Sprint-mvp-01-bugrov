@@ -78,8 +78,20 @@ def category_total():
         if e["категория"].lower() == category:
             total = total + e["сумма"]
     print(f"Потрачено в категории «{category}»: {total:.2f} руб.")
- 
- 
+
 MENU.append(("Сумма по категории", category_total))
+# ===== US-6. Удалить расход =====
+def delete_expense():
+    show_expenses()
+    number = ask_int("Номер расхода для удаления: ")
+    if 1 <= number <= len(expenses):
+        expenses.pop(number - 1)
+        print("Расход удалён")
+    else:
+        print("Нет расхода с таким номером")
+ 
+ 
+MENU.append(("Удалить расход", delete_expense))
+
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
