@@ -51,6 +51,16 @@ def add_expense():
     expenses.append({"сумма": amount, "категория": category})
     print("Расход добавлен")
 
+ # ===== US-3. Список расходов =====
+def show_expenses():
+    if len(expenses) == 0:
+        print("Расходов пока нет")
+        return
+    for number, e in enumerate(expenses, start=1):
+        print(f"{number}. {e['категория']} — {e['сумма']:.2f} руб.")
  
+ 
+MENU.append(("Список расходов", show_expenses))
+
 # ===== ЗАПУСК: эта строка всегда должна быть последней =====
 start()
